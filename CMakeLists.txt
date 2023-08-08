@@ -8,3 +8,16 @@ add_library(hello::library ALIAS hello_library)
 
 add_executable(hello_binary src/main.cpp)
 target_link_libraries(hello_binary PRIVATE hello::library)
+
+
+set(CMAKE_INSTALL_PREFIX /tmp)
+install(TARGETS hello_binary DESTINATION bin)
+install(TARGETS hello_library LIBRARY DESTINATION lib)
+# WINDOWS ONLY
+# install (TARGETS hello_library
+#     LIBRARY DESTINATION lib
+#     RUNTIME DESTINATION bin
+# )
+# WINDOWS ONLY
+install(DIRECTORY ${PROJECT_SOURCE_DIR}/include/ DESTINATION include)
+install(FILES CMakeLists.txt DESTINATION etc)
