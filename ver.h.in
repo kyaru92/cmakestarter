@@ -1,0 +1,6 @@
+#ifndef VER_H
+#define VER_H
+
+const char* ver = "${app_version}";
+
+#endif
